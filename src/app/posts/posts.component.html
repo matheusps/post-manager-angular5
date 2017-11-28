@@ -8,23 +8,37 @@
 <br>
 <br>
 
-<table class="table">
-  <thead>
-      <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Actions</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let post of posts">
-          <td>{{post.id}}</td>
-          <td>{{post.title}}</td>
-          <td>
-              <a class="button is-positive">View</a>
-              <a class="button is-warning" [routerLink]="['/create-post', post.id]">Edit</a>
-              <a class="button is-danger" (click)="deletePost(post)">Delete</a>
-          </td>
-      </tr>
-  </tbody>
-</table>
+<div class="columns">
+    <div class="column">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts">
+                    <td>{{post.id}}</td>
+                    <td>{{post.title}}</td>
+                    <td>
+                        <a class="button is-positive" (click)="setAsActive(post)">View</a>
+                        <a class="button is-warning" [routerLink]="['/create-post', post.id]">Edit</a>
+                        <a class="button is-danger" (click)="deletePost(post)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="column" >
+        <p class="title">
+            {{activePost.title}}
+        </p>
+        <p class="subtitle">
+            {{activePost.description}}
+        </p>
+        <p class="has-text-justified" [innerHTML]="activePost.body">
+        </p>
+    </div>
+  </div>

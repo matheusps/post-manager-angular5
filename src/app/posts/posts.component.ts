@@ -9,6 +9,7 @@ import { Post } from '../shared/post';
 
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
+  activePost: Post;
 
   constructor(private postService: PostService) {
   }
@@ -31,6 +32,10 @@ export class PostsComponent implements OnInit {
             this.posts.splice(index, 0, post);
           });
     }
-}
+  }
+
+  setAsActive(post){
+    this.activePost = post;
+  }
 
 }
