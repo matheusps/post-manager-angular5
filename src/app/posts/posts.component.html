@@ -1,0 +1,30 @@
+<h1 class="title">
+  Posts
+</h1>
+<p class="subtitle">
+  View, Edit or Delete your posts
+</p>
+
+<br>
+<br>
+
+<table class="table">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Actions</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let post of posts">
+          <td>{{post.id}}</td>
+          <td>{{post.title}}</td>
+          <td>
+              <a class="button is-positive">View</a>
+              <a class="button is-warning" [routerLink]="['/create-post', post.id]">Edit</a>
+              <a class="button is-danger" (click)="deletePost(post)">Delete</a>
+          </td>
+      </tr>
+  </tbody>
+</table>
