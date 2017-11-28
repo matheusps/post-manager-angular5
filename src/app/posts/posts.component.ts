@@ -9,7 +9,7 @@ import { Post } from '../shared/post';
 
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
-  activePost: Post;
+  activePost: Post = new Post();
 
   constructor(private postService: PostService) {
   }

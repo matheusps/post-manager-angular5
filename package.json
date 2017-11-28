@@ -21,6 +21,7 @@
     "angular2-notifications": "^0.9.6",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
+    "tinymce": "^4.7.3",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

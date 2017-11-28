@@ -9,11 +9,11 @@
 <br>
 <br>
 
-<form [formGroup]="form" (ngSubmit)="save()">
+<form (ngSubmit)="save()">
 
     <div class="field is-grouped is-pulled-right">
       <div class="control">
-        <button class="button is-link" type="submit" [disabled]="!form.valid">
+        <button class="button is-link" type="submit">
           Create
         </button>
       </div>
@@ -25,44 +25,24 @@
     <br>
     
     <div class="field">
-      <label class="label"
-        for="title"
-        [class.active]="post.title"
-        data-error="Title is required and needs to contain at least 3 chars"
-      >Title</label>
+      <label class="label" for="title">Title</label>
       <div class="control">
         <input
-          id="title" type="text" class="input validate"
-          [(ngModel)]="post.title" formControlName="title"
-          [class.invalid]="form.controls['title'].touched && !form.controls['title'].valid">
+          id="title" type="text" class="input" [(ngModel)]="post.title" [ngModelOptions]="{standalone: true}">
       </div>
     </div>
   
     <div class="field">
-        <label class="label"
-          for="description"
-          [class.active]="post.description"
-          data-error="Description is required and needs to contain at least 10 chars">
-        Description
-      </label>
+        <label class="label" for="description">Description</label>
         <div class="control">
-          <input
-            id="description" type="text" class="input validate"
-            [(ngModel)]="post.description" formControlName="description"
-            [class.invalid]="form.controls['description'].touched && !form.controls['description'].valid">
+          <input id="description" type="text" class="input"[(ngModel)]="post.description" [ngModelOptions]="{standalone: true}">
         </div>
-      </div>
+    </div>
     
     <div class="field">
-      <label class="label"
-      for="body"
-      [class.active]="post.body"
-      data-error="Body is required and needs to contain at least 10 chars">Body</label>
+      <label class="label" for="body">Body</label>
       <div class="control">
-        <textarea class="textarea" rows="100%"
-        id="body" type="text" class="input validate"
-        [(ngModel)]="post.body" formControlName="body"
-        [class.invalid]="form.controls['body'].touched && !form.controls['body'].valid"></textarea>
+        <app-editor [value]="defaultPostBody" [elementId]="'body'" (onEditorKeyup)="handleKeyup($event)"></app-editor>
       </div>
     </div>
   </form>

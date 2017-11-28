@@ -11,7 +11,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 
-import { PostService } from './shared/post-service.service'
+import { PostService } from './shared/post-service.service';
+import { EditorComponent } from './helpers/editor/editor.component'
 
 const appRoutes: Routes = [
   { path: '', component: PostsComponent },
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     PostsComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    EditorComponent
   ],
   imports: [
     
